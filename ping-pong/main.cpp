@@ -23,6 +23,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
 	{
 
+	// ‰æ–Ê‚ğ‰Šú‰»‚·‚é
+	ClearDrawScreen();
 	}
 	///Œãn––
 
