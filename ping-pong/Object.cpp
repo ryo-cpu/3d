@@ -108,6 +108,17 @@ bool Object::isCollicon_Ball_to_Ball(const VECTOR& ball1_pos, const float& ball1
     return false;
 }
 
+bool Object::isCollicon_Ball_to_Triangle(const VECTOR& ball1_pos, const float& ball1_Rsdius, const VECTOR& Apex1, const VECTOR& Apex2, const VECTOR& Apex3)
+{
+    ///三角形とposの最短距離を出す
+    VECTOR MinPos=
+    ////最短距離をボールの半径の長さに変える
+    ////変形したながさの＋－をposに足す　円周上の最短距離をと最長を求める
+    ///その2つそれぞれで頂点たちをの外積を求める
+    //2てんの方向が同じか確かめる　違うならtrueを返す
+    return false;
+}
+
 VECTOR Object::Push_Back_Vector_Triangle(VECTOR& ChekPoint, const VECTOR& Apex1, const VECTOR& Apex2, const VECTOR& Apex3)
 {
     //posから各頂点へのベクトル

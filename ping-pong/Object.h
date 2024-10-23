@@ -36,6 +36,8 @@ public :
 	/// <returns></returns>
 	static VECTOR RotFreeAxis(VECTOR& V1, const  VECTOR& Axis, const MATRIX& Power);
 	static bool isCollicon_Ball_to_Ball(const VECTOR &ball1_pos,const float &ball1_Rsdius, const VECTOR& ball2_pos, const float& ball2_Rsdius);
+	static bool isCollicon_Ball_to_Triangle(const VECTOR& ball1_pos, const float& ball1_Rsdius, const VECTOR& Apex1, const VECTOR& Apex2, const VECTOR& Apex3);
+
 	
 protected:
 	int		modelHandle;	// ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹.
