@@ -111,12 +111,41 @@ bool Object::isCollicon_Ball_to_Ball(const VECTOR& ball1_pos, const float& ball1
 bool Object::isCollicon_Ball_to_Triangle(const VECTOR& ball1_pos, const float& ball1_Rsdius, const VECTOR& Apex1, const VECTOR& Apex2, const VECTOR& Apex3)
 {
     ///ŽOŠpŒ`‚Æpos‚ÌÅ’Z‹——£‚ðo‚·
-    VECTOR MinPos=
+    VECTOR Check_to_1 = VSub(Apex1, ball1_pos);
+    VECTOR Check_to_2 = VSub(Apex2, ball1_pos);
+    VECTOR Check_to_3 = VSub(Apex3, ball1_pos);
+    ///‚Q‚Â‚Ì…•½‚Èü‚ÌŠOÏ‚Í‚’¼
+    VECTOR Outer1 = Outer_Volume(Check_to_1, Check_to_2);
+    VECTOR Outer2 = Outer_Volume(Check_to_1, Check_to_3);
+
+    VECTOR VertivalLine = Outer_Volume(Outer1, Outer2);
+    
     ////Å’Z‹——£‚ðƒ{[ƒ‹‚Ì”¼Œa‚Ì’·‚³‚É•Ï‚¦‚é
+    VertivalLine = VScale(VectorNorm(VertivalLine), ball1_Rsdius);
+
+   
     ////•ÏŒ`‚µ‚½‚È‚ª‚³‚Ì{|‚ðpos‚É‘«‚·@‰~Žüã‚ÌÅ’Z‹——£‚ð‚ÆÅ’·‚ð‹‚ß‚é
+    VECTOR AddVertivalLine = VAdd(ball1_pos, VertivalLine);
+    VECTOR SubVertivalLine = VSub(ball1_pos, VertivalLine);
+
     ///‚»‚Ì2‚Â‚»‚ê‚¼‚ê‚Å’¸“_‚½‚¿‚ð‚ÌŠOÏ‚ð‹‚ß‚é
+    VECTOR AddVertivalLine_Apex1= VSub(Apex1, AddVertivalLine);
+    VECTOR AddVertivalLine_Apex2 = VSub(Apex2, AddVertivalLine);
+
+    VECTOR Add_Outer = Outer_Volume(AddVertivalLine_Apex1, AddVertivalLine_Apex2);
+
+    VECTOR SubVertivalLine_Apex1 = VSub(Apex1, AddVertivalLine);
+    VECTOR SubVertivalLine_Apex2 = VSub(Apex2, AddVertivalLine);
+
+    VECTOR Sub_Outer = Outer_Volume(AddVertivalLine_Apex1, AddVertivalLine_Apex2);
+
     //2‚Ä‚ñ‚Ì•ûŒü‚ª“¯‚¶‚©Šm‚©‚ß‚é@ˆá‚¤‚È‚çtrue‚ð•Ô‚·
-    return false;
+    VECTOR Jag = VMultiplication(Add_Outer, Sub_Outer);
+    if (Jag.x > 0 && Jag.y > 0 && Jag.z > 0)
+    {
+        return false;
+    }
+    return true;
 }
 
 VECTOR Object::Push_Back_Vector_Triangle(VECTOR& ChekPoint, const VECTOR& Apex1, const VECTOR& Apex2, const VECTOR& Apex3)

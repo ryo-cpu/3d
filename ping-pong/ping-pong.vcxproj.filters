@@ -16,6 +16,9 @@
     <Filter Include="ソース ファイル\Camera">
       <UniqueIdentifier>{6003c594-5470-422e-86f2-a631360a4b7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\object">
+      <UniqueIdentifier>{540ed1cd-cd20-4eb5-8da5-12cfcb6a9982}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,10 +27,16 @@
     <ClCompile Include="Camera.cpp">
       <Filter>ソース ファイル\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
       <Filter>ソース ファイル\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>ソース ファイル\object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
